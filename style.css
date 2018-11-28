@@ -1,0 +1,120 @@
+.quizContainer{
+    background-color: #ddd;
+    margin: 50px;
+    width: 785px;
+    margin-left: 100px;
+}
+
+#quizQuestions{
+    border-bottom: 1px solid #ccc;
+    font-size: 25px;
+    color: #444;
+    font-family: sans-serif;
+    margin: 10px;
+    height: 44px;
+    padding-top: 44px;
+    padding-left: 20px;
+    width: auto;
+
+}
+#quizAnswer{
+    width: 400px;
+    height: 300px;
+    background-color: #ddd;
+}
+.answer-box:first-child{
+    position: absolute;
+    top: 150px;
+    left: 185px;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
+.answer-box:first-child input{
+    position: relative;
+    left: -99%;
+    cursor: pointer;
+
+}
+.answer-box:nth-child(2) input{
+    position: relative;
+    left: -99%;
+    cursor: pointer;
+
+}
+.answer-box:nth-child(3) input{
+    position: relative;
+    left: -99%;
+    cursor: pointer;
+
+}
+.answer-box:nth-child(4) input{
+    position: relative;
+    left: -99%;
+    cursor: pointer;
+
+}
+
+.answer-box:nth-child(2){
+    position: absolute;
+    top: 185px;
+    left: 185px;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.answer-box:nth-child(3){
+    position: absolute;
+    top: 220px;
+    left: 185px;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
+.answer-box:nth-child(4){
+    position: absolute;
+    top: 250px;
+    left: 185px;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#score{
+    width: 202px;
+    height: 50px;
+    background-color: #ccc;
+    text-align: center;
+    position: absolute;
+    top: 71%;
+    left: 8%;
+    color: #444;
+    font-size: 20px;
+
+}button{
+    height: 50px;
+    width: 87px;
+    background-color: #888;
+    color: white;
+    position: relative;
+    top: -27px;
+    left: 530px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #999;
+}
+#quesNo{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    font-size: 20px;
+}
+#submitButton{
+    left: 357px;
+    top: 47px;
+    width: 132px;
+    font-size: 20px;
+
+}
