@@ -20,6 +20,14 @@ let application = {
         new Question(2, 'What is capital of Punjab?', ['Faisalabad', 'Multan', 'Lahore', 'Gujranwala'], 'Lahore', 1),
         new Question(3, 'what is capital of Sindh?', ['Peshawar', 'karachi', 'Sakkur', 'Larkana'], 'karachi', 1),
         new Question(4, 'who is prime minister of pakistan ?', ['Nawaz Shrif', 'Imran Khan', 'Asif Zrdari', 'Shahbaz Shrif'], 'Imran Khan', 1),
+        new Question(5, 'Geoghrapically speaking Paksistan is located in?', ['South East', 'South Asia', 'Central Asia', 'Middle East'], 'South Asia', 1),
+        new Question(6, 'pakistan shares a border with china whose leng?th is?', ['485 Kms', '585 Kms', '685 kms', '785 Kms'], '585 Kms', 1),
+        new Question(7, 'In terms of area the smallest provience is?', ['Sindh', 'KPK', 'Punjab', 'Balochistan'], 'KPK', 1),
+        new Question(8, 'The soap was made by ---- first of all?', ['Hazrat Ishaq (AS)', 'Hazrat Yusha (AS)', 'Hazrat Younas (AS)', 'Hazrat Salih (AS)'], 'Hazrat Salih (AS)', 1),
+        new Question(9, 'There are ---- countries in the world?', ['193', '182', '186', '196'], '193', 1),
+        new Question(10, 'The currency of turkey is ?', ['Pound', 'Peso', 'Markka', 'Lira'], 'Lira', 1),
+
+
 
     ],
 
@@ -52,7 +60,7 @@ let application = {
 
     //     else {
     //         // alert('Allah Hafiz');
-        // }
+    // }
 
     // },
 
@@ -72,12 +80,13 @@ let application = {
             let answerBox = document.createElement('div');
 
             let check = document.createElement('input');
-             
+
             check.onchange = function () {
                 if (this.checked) {
                     application.data[application.currentQuestion].selectedAnswer = this.value;
                 }
             }
+
             // let option = document.createElement('p');
             // option.innerText = "a";
             check.type = 'radio';
@@ -99,21 +108,21 @@ let application = {
 
 
     },
-    
+
     nextQuestion() {
         
 
-
         if (application.currentQuestion == application.data.length - 1) {
-
-            // alert('Yor Score is :' + application.score);
-            // application.checkResult();
-
+            document.getElementById('submitButton').style.visibility = 'visible';
 
         }
-        else {
+
+        if (document.querySelectorAll('input:checked').length){
             application.currentQuestion++;
             application.setQuestion(application.data[application.currentQuestion]);
+        }
+        else {
+            alert('please select one');
         }
     },
 
@@ -124,19 +133,21 @@ let application = {
 
             var selectedAnswer = application.data[i].selectedAnswer;
             // /var cQuestion = application.data[i].question;
-          //  application.data[i].answers.forEach(function (answer) {
+            //  application.data[i].answers.forEach(function (answer) {
 
-                if (selectedAnswer ==  application.data[i].correct) {
-                    
-                    cAnswers++
-                
-                }
-            
-          
+            if (selectedAnswer == application.data[i].correct) {
+
+                cAnswers++
+
+            }
+
+
 
         }
 
-        score.innerText ="Your score is : " + cAnswers;
+        document.getElementById('score').style.backgroundColor = 'rgb(134, 109, 38';
+        score.innerText = "Your score is : " + cAnswers;
+        // window.open('result.html');
     },
 
 }

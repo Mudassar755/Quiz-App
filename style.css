@@ -1,14 +1,14 @@
 .quizContainer{
-    background-color: #ddd;
+    background-color: rgb(122, 109, 36);
     margin: 50px;
-    width: 785px;
+    width: 70%;
     margin-left: 100px;
 }
 
 #quizQuestions{
     border-bottom: 1px solid #ccc;
     font-size: 25px;
-    color: #444;
+    color: wheat;
     font-family: sans-serif;
     margin: 10px;
     height: 44px;
@@ -20,15 +20,15 @@
 #quizAnswer{
     width: 400px;
     height: 300px;
-    background-color: #ddd;
+    background-color: rgb(122, 109, 36);
 }
 .answer-box:first-child{
     position: absolute;
     top: 150px;
     left: 185px;
-    color: #333;
+    color: wheat;
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .answer-box:first-child input{
     position: relative;
@@ -59,29 +59,29 @@
     position: absolute;
     top: 185px;
     left: 185px;
-    color: #333;
+    color: wheat;
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .answer-box:nth-child(3){
     position: absolute;
     top: 220px;
     left: 185px;
-    color: #333;
+    color: wheat;
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .answer-box:nth-child(4){
     position: absolute;
     top: 250px;
     left: 185px;
-    color: #333;
+    color: wheat;
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
-#score{
+/* #score{
     width: 202px;
     height: 50px;
     background-color: #ccc;
@@ -90,31 +90,70 @@
     top: 71%;
     left: 8%;
     color: #444;
-    font-size: 20px;
+    font-size: 20px; */
 
-}button{
+/* } */
+button{
     height: 50px;
     width: 87px;
-    background-color: #888;
-    color: white;
+    background-color: wheat;
+    color: rgb(95, 83, 17);
     position: relative;
-    top: -27px;
-    left: 530px;
+    top: -25px;
+    left: 55%;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 18px;
+    
 }
 button:hover{
-    background-color: #999;
+    background-color: rgb(221, 170, 76);
 }
 #quesNo{
-    position: absolute;
+    position: relative;
     top: 15%;
-    left: 50%;
+    left: 80%;
     font-size: 20px;
+    color: wheat;
 }
 #submitButton{
-    left: 357px;
-    top: 47px;
+    left: 80%;
+    top: -23px;
     width: 132px;
     font-size: 20px;
+    visibility: hidden;
+    
 
+}#resultContainer{
+    margin: auto;
+    position: static;
+    width: 1000px;
+    height: 600px;
+    background-color: #395;
+    border-radius: 100%;
+    font-size: 100px;
+    color: white;
+    text-align: center;
+}
+#resultButton{
+    width: 265px;
+    height: 60px;
+    border-radius: 10px;
+    position: relative;
+    top: 100px;
+    left: 31px;
+    background-color: #908;
+    font-size: 20px;
+}
+#score{
+    position: relative;
+    top: 4px;
+    font-size: 60px;
+    left: 7%;
+    width: 70%;
+    height: 75px;
+    text-align: center;
+    color: wheat;
+    
 }
