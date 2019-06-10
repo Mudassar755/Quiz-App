@@ -10,8 +10,15 @@
 </head>
 
 <body>
-    <div class="quizContainer">
-        <span></span>
+
+    <div id="start">
+        <button id="startBtn" class="btn" onclick="startQuiz()">Start</button>
+    </div>
+    
+    <div id="quizContainer" class="hide">
+        <audio id="sound"></audio>
+        
+        <div id="timeCounter"><span id="time">00:00</span></div>
         <div id="quizQuestions">
             
         </div>
@@ -19,14 +26,24 @@
         <div id="quizAnswer">
 
         </div>
-        <button id="submitButton" onclick=" application.checkResult()";> Submit </button>
-        <button id="nextButton" onclick="application.nextQuestion()";>Next > </button>
+        <button id="nextButton" class="btn disable nextbtn" onclick="application.nextQuestion()";>Next > </button>
+        <button id="submitButton" class="btn" class="hide" onclick=" application.checkResult()";> Submit </button>
         <audio id="quizSound"></audio>
         <div id="quizTime"></div>
         <div id="quizResult"></div>
         
     </div>
-    <div id="score"></div>
+    <div id="resultNotify" class="hide">
+        <h2>See Your Result</h2>
+        <button id="resultBtn" class="btn" onclick=" application.checkResult()";>Result</button>
+    </div>
+    <div id="percentage" class="hide">
+    </div>
+    <div id="rPercent" class="hide"></div>
+    <div id="score">
+        <span id="right"></span>
+        <span id="wrong"></span>
+    </div>
 
 </body>
 <script src="mainQuiz.js"></script>

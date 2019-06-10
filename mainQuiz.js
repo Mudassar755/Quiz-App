@@ -1,6 +1,17 @@
-window.onload = function () {
+startQuiz = function () {
     application.init();
+
+    var fiveMinutes = 60 * 0.5,
+        display = document.querySelector('#time');
+    application.startTimer(fiveMinutes, display);
+
+    quizContainer.classList.remove('hide');
+    start.classList.add('hide');
+
+
 }
+
+
 
 class Question {
     constructor(questionNo, question, answers, correct, score) {
@@ -31,66 +42,50 @@ let application = {
 
     ],
 
-    // onAnswerSelected(event) {
-    //     let answer = event.target.innerText;
-
-    //     let selectedAns = application.data[application.currentQuestion].correct;
-
-    //     if (application.data[application.currentQuestion].correct == answer) {
-
-    //         application.score += application.data[application.currentQuestion].score;
-
-    //         score.innerText = application.score;
-
-
-
-    //         application.currentQuestion++;
-
-    //         if (application.currentQuestion >= application.data.length) {
-    //             application.checkResult();
-
-    //             // alert('Congratulation ! Yor Score is :' + application.score);
-
-
-    //         }
-    //         else {
-    //             application.setQuestion(application.data[application.currentQuestion]);
-    //         }
-    //     }
-
-    //     else {
-    //         // alert('Allah Hafiz');
-    // }
-
-    // },
 
     init() {
+
+
+        this.data = this.data.sort(function (p, n) {
+            return Math.random() - 0.5;
+        });
         let currentQuestion = this.data[this.currentQuestion];
         this.setQuestion(currentQuestion);
 
+
+
+        // application.currentQuestion
+
     },
     setQuestion: function (question) {
+
         quizQuestions.innerText = question.question;
-        quesNo.innerText = "Question " + question.questionNo + " of 10";
+        quesNo.innerText = "Question " + (this.currentQuestion + 1) + " of " + application.data.length;
+        // quesNo.innerText = "Question " + question.questionNo + " of " + application.data.length;
+
         quizAnswer.innerHTML = '';
 
 
 
-        question.answers.forEach((answer) => {
-            let answerBox = document.createElement('div');
+        question.answers.forEach((answer, index) => {
+            let answerBox = document.createElement('label');
 
             let check = document.createElement('input');
+            let elementId = 'select_' + index;
+            answerBox.setAttribute('for', elementId);
 
             check.onchange = function () {
+
+                document.querySelector('button.disable').classList.remove('disable');
+
                 if (this.checked) {
                     application.data[application.currentQuestion].selectedAnswer = this.value;
                 }
             }
 
-            // let option = document.createElement('p');
-            // option.innerText = "a";
+
             check.type = 'radio';
-            check.id = 'select';
+            check.id = elementId;
             check.value = answer;
             answerBox.className = 'answer-box';
             check.name = 'answer';
@@ -110,44 +105,104 @@ let application = {
     },
 
     nextQuestion() {
-        
 
+        nextButton.classList.add('disable');
         if (application.currentQuestion == application.data.length - 1) {
+            // document.getElementById('submitButton').classList.remove('hide');
             document.getElementById('submitButton').style.visibility = 'visible';
+            
+
+
+
 
         }
 
-        if (document.querySelectorAll('input:checked').length){
+        if (document.querySelectorAll('input:checked').length) {
+
+
             application.currentQuestion++;
             application.setQuestion(application.data[application.currentQuestion]);
+            // document.getElementById('nextButton').classList.remove('disable');
         }
         else {
             alert('please select one');
+
+
         }
     },
 
     checkResult() {
         var cAnswers = 0;
-        // let correctAnswers = application.data[application.currentQuestion].correct;
+        var wrongAnswers = 0;
+
+
         for (let i = 0; i < application.data.length; i++) {
 
             var selectedAnswer = application.data[i].selectedAnswer;
-            // /var cQuestion = application.data[i].question;
-            //  application.data[i].answers.forEach(function (answer) {
+
 
             if (selectedAnswer == application.data[i].correct) {
 
                 cAnswers++
 
             }
+            else if (selectedAnswer !== application.data[i].correct) {
+
+                wrongAnswers++
+            }
 
 
 
         }
+        resultNotify.classList.add('hide');
+        quizContainer.classList.add('hide');
 
-        document.getElementById('score').style.backgroundColor = 'rgb(134, 109, 38';
-        score.innerText = "Your score is : " + cAnswers;
-        // window.open('result.html');
+        let resultPersentage = (cAnswers / application.data.length) * 100;
+
+        document.getElementById('score').style.backgroundColor = 'rgb(134, 109, 38)';
+
+        right.innerText = "Correct answers : " + cAnswers;
+        wrong.innerText = 'Wrong answers :' + wrongAnswers;
+
+        rPercent.innerText = resultPersentage + ' %';
+
+        if (resultPersentage >= 70) {
+            percentage.innerText = 'You are Passed !';
+
+        }
+        else {
+            percentage.innerText = 'You are Failed';
+        }
+
+        percentage.classList.remove('hide');
+        rPercent.classList.remove('hide');
     },
 
+    startTimer(duration, display) {
+        this.timer = duration;
+        var minutes, seconds;
+
+        var clear = setInterval(() => {
+
+            minutes = parseInt(this.timer / 60, 10)
+            seconds = parseInt(this.timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (this.timer-- == 0) {
+
+                clearInterval(clear); //it is builtin function
+
+                timeCounter.classList.add('hide');
+                quizContainer.classList.add('hide');
+                resultNotify.classList.remove('hide');
+                // this.checkResult()
+
+
+            }
+        }, 1000);
+    }
 }

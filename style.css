@@ -1,8 +1,24 @@
-.quizContainer{
+#start{
+    
+        width: 300px;
+        height: 150px;
+        background-color: rgb(122, 109, 36);
+        position: relative;
+        margin: auto;
+        top: 50px;
+        border-radius: 10px;
+}
+#startBtn{
+    top: 50px;
+    left: 100px;
+}
+#quizContainer{
     background-color: rgb(122, 109, 36);
     margin: 50px;
     width: 70%;
     margin-left: 100px;
+    margin: auto;
+    height: 700px;
 }
 
 #quizQuestions{
@@ -10,25 +26,32 @@
     font-size: 25px;
     color: wheat;
     font-family: sans-serif;
-    margin: 10px;
     height: 44px;
     padding-top: 44px;
     padding-left: 20px;
-    width: auto;
+    width: 95%;
+    position: relative;
+    border: 1px solid;
+    top: 77px;
+    left: 10px;
+    
 
 }
 #quizAnswer{
-    width: 400px;
+    position: relative;
+    top: 74px;
+    left: 10px;
+    width: 98%;
     height: 300px;
     background-color: rgb(122, 109, 36);
 }
 .answer-box:first-child{
     position: absolute;
-    top: 150px;
-    left: 185px;
+    top: 40px;
+    left: 75px;
     color: wheat;
     font-size: 20px;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 .answer-box:first-child input{
     position: relative;
@@ -57,28 +80,28 @@
 
 .answer-box:nth-child(2){
     position: absolute;
-    top: 185px;
-    left: 185px;
+    top: 85px;
+    left: 75px;
     color: wheat;
     font-size: 20px;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 .answer-box:nth-child(3){
     position: absolute;
-    top: 220px;
-    left: 185px;
+    top: 130px;
+    left: 75px;
     color: wheat;
     font-size: 20px;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 .answer-box:nth-child(4){
     position: absolute;
-    top: 250px;
-    left: 185px;
+    top: 175px;
+    left: 75px;
     color: wheat;
     font-size: 20px;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 /* #score{
@@ -93,14 +116,14 @@
     font-size: 20px; */
 
 /* } */
-button{
+.btn{
     height: 50px;
     width: 87px;
     background-color: wheat;
     color: rgb(95, 83, 17);
     position: relative;
-    top: -25px;
-    left: 55%;
+    top: 110px;
+    left: 85%;
     cursor: pointer;
     border: 1px solid white;
     border-radius: 5px;
@@ -116,10 +139,11 @@ button:hover{
     left: 80%;
     font-size: 20px;
     color: wheat;
+    z-index: 2;
 }
 #submitButton{
-    left: 80%;
-    top: -23px;
+    left: 60%;
+    top: 110px;
     width: 132px;
     font-size: 20px;
     visibility: hidden;
@@ -148,12 +172,92 @@ button:hover{
 }
 #score{
     position: relative;
-    top: 4px;
-    font-size: 60px;
-    left: 7%;
+    top: 40px;
+    font-size: 30px;
+    left: 15%;
     width: 70%;
-    height: 75px;
+    height: 66px;
     text-align: center;
     color: wheat;
+    padding-top: 38px;
+
     
+}
+#timeCounter{
+    color: wheat;
+    font-size: 25px;
+    float: right;
+    position: relative;
+    top: 35px;
+    font-family: sans-serif;
+    right: 85px;
+}
+
+#resultBtn{
+    height: 50px;
+    width: 87px;
+    background-color: wheat;
+    color: rgb(95, 83, 17);
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 18px;
+    position: relative;
+    left: 192px;
+    top: 20px;
+
+
+}
+
+#resultNotify{
+    background-color: rgb(122, 109, 36);
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: wheat;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#resultNotify h2{
+    position: relative;
+    left: 155px;
+
+}
+.hide{
+    display: none;
+}
+.disable{
+    opacity: 0.5;
+    pointer-events: none;
+}
+#percentage{
+    color: wheat;
+    background-color: rgb(134, 109, 38);
+    text-align: center;
+    position: relative;
+    height: 100px;
+    width: 70%;
+    margin: auto;
+    font-size: 65px;
+    font-family: sans-serif;
+    top: 40px;
+    border-bottom: 1px solid wheat;
+}
+#rPercent{
+    position: relative;
+    left: 43%;
+    top: 42px;
+    font-size: 50px;
+    background-color: wheat;
+    border: 1px solid rgb(134, 109, 38);
+    color: rgb(134, 109, 38);
+    width: 200px;
+    height: 119px;
+    text-align: center;
+    border-radius: 50%;
+    padding-top: 53px;
 }
